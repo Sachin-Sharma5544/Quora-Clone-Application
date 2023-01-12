@@ -1,0 +1,51 @@
+/* Applicable to All pages */
+
+
+.main-body {
+    background-color: white;
+    max-width: 60%;
+    margin: 5rem auto;
+    padding: 1rem 2rem;
+}
+
+/* Welcome Page styles */
+
+.main-body__header {
+    text-align: center;
+    margin: 3rem 0;
+    
+}
+
+.main-body__header span {
+    color: rgb(185,43,39);
+}
+
+
+.main-body__content {
+    text-align: justify;
+}
+
+.main-body__button  {
+    display: flex;
+    justify-content: center;
+}
+
+.main-body__button  button{
+    padding: 5px 10px;
+    background-color: white;
+    color: rgb(42, 168, 240);
+    border: 2px solid rgb(42, 168, 240);
+    border-radius: 8px;
+}
+
+
+/* Articles Page styles */
+
+.main-body__article {
+    height: 100px;
+    margin: 10px 0;
+    background-color: rgb(179, 249, 179);
+}
+
+
+
