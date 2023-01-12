@@ -40,12 +40,48 @@
 
 
 /* Articles Page styles */
+/* .main-body__articleWrapper {
+    margin: 10px 0;
+    padding: 10px;
+} */
 
 .main-body__article {
     height: 100px;
-    margin: 10px 0;
     background-color: rgb(179, 249, 179);
+    margin: 10px 0;
+    padding: 10px;
 }
 
 
 
+.main-body__articleUserDetails {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-body__articleUser {
+    display: flex;
+}
+
+.main-body__articleUserInfo {
+    margin: 5px 10px;
+
+}
+
+.main-body__articleUserInfo > * {
+    font-size: 12px;
+    margin: 0;
+}
+
+.main-body__articleUserImg img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.main-body__articleUserButtons >button {
+    padding: 10px;
+    background-color: none;
+    border-radius: 50%;
+    border: none;
+}
