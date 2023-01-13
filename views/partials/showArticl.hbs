@@ -37,9 +37,12 @@
                     </div>
                 </div>
             </div>
-            <div class="article__view-button">
+            <div class="article__editDel-button">
                 <form action="/articles/{{articleVal.id}}" method="GET">
-                    <button type="submit">View Article</button>
+                    <button type="submit">Edit</button>
+                </form>
+                <form action="/articles/{{articleVal.id}}" method="GET">
+                    <button type="submit">Delete</button>
                 </form>
             </div>
         </div>

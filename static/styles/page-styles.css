@@ -127,6 +127,35 @@
     font-size: 15px;
 }
 
+.article__view-button,
+.article__editDel-button {
+    display: flex;
+    justify-content: center;
+}
+
+.article__view-button button,
+.article__editDel-button button{
+    border: 2px solid rgb(185,43,39);;
+    padding: 0.2rem 0.3rem;
+    color: rgb(185,43,39);
+    background-color: white;
+    border-radius: 10px;
+}
+
+.article__editDel-button button {
+    margin-right: 0.4rem;
+}
+
+.article__view-button button:hover, 
+.article__editDel-button button:hover{
+    padding: 0.2rem 0.3rem;
+    border: 2px solid rgb(185,43,39);;
+    padding: 0.2rem 0.3rem;
+    color: white;
+    background-color:rgb(185,43,39) ;
+    border-radius: 10px;
+}
+
 /* Create Article Page styling */
 
 .main-body__createArticle {
@@ -149,9 +178,11 @@
 .createArticle__content, 
 .createArticle__contentQuestion,
 .createArticle__contentAnswer,
-.createArticle__content textarea{
+.createArticle__content textarea,
+.createArticle__AuthorInterest input{
     width: 100%; 
 }
+
 
 .createArticle__submit {
     margin-top: 1rem;
