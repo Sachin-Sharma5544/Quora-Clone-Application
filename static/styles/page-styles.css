@@ -38,6 +38,15 @@
     border-radius: 8px;
 }
 
+.main-body__button  button:hover{
+    padding: 5px 10px;
+    background-color: rgb(42, 168, 240);
+    color: white;
+    border: 2px solid rgb(42, 168, 240);
+    border-radius: 8px;
+}
+
+
 
 /* Articles Page styles */
 
