@@ -38,10 +38,13 @@
                 </div>
             </div>
             <div class="article__editDel-button">
-                <form action="/articles/{{articleVal.id}}" method="GET">
+                <form action="/articles/{{articleVal.id}}/edit" method="GET">
                     <button type="submit">Edit</button>
                 </form>
-                <form action="/articles/{{articleVal.id}}" method="GET">
+                <form
+                    action="/articles/{{articleVal.id}}?_method=DELETE"
+                    method="POST"
+                >
                     <button type="submit">Delete</button>
                 </form>
             </div>

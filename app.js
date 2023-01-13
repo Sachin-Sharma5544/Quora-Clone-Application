@@ -1,5 +1,6 @@
 const path = require("path");
 
+const methodOverride = require("method-override");
 const hbs = require("hbs");
 const express = require("express");
 const app = express();
@@ -17,13 +18,14 @@ let num;
 
 app.use(express.static(path.join(dirname, staticFolder)));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 //Setting view engine
 app.set("view engine", "hbs");
 
 hbs.registerPartials(__dirname + "/views/partials");
 
-const articles = [
+let articles = [
     {
         id: 1,
         author: "Sachin Kumar Sharma",
@@ -42,12 +44,14 @@ const articles = [
 
 num = articles.length + 1;
 
+//This is for rendering landing Page
 app.get("/", (req, res) => {
     res.render(path.join(dirname, viewsFolder, welcomePage), {
         title: "Jawaab Paao",
     });
 });
 
+// for rendering all articles
 app.get("/articles", (req, res) => {
     res.render(path.join(dirname, viewsFolder, articlesPage), {
         title: "Jawaab Paao ",
@@ -56,6 +60,7 @@ app.get("/articles", (req, res) => {
     });
 });
 
+// adding article
 app.post("/articles", (req, res) => {
     const { authorName, authorInterest, authorQuestion, authorAnswer } =
         req.body;
@@ -71,21 +76,56 @@ app.post("/articles", (req, res) => {
     res.redirect("/articles");
 });
 
+//Rendering Create new page
 app.get("/article/new", (req, res) => {
     res.render("createArticle");
 });
 
+// render single article
 app.get("/articles/:id", (req, res) => {
     const { id } = req.params;
     const myFilteredArt = articles.filter(
         (article) => article.id === parseInt(id)
     );
-    console.log(myFilteredArt);
-
     res.render("showArticle", {
         articles: myFilteredArt,
         hasArticles: myFilteredArt.length > 0,
     });
+});
+
+//rendering Edit page
+app.get("/articles/:id/edit", (req, res) => {
+    const { id } = req.params;
+    const myFilteredArt = articles.filter(
+        (article) => article.id === parseInt(id)
+    );
+    res.render("editArticle", { articles: myFilteredArt[0] });
+});
+
+//Updating the article
+app.put("/articles/:id", (req, res) => {
+    const { id } = req.params;
+    let myIndex = -1;
+    articles.forEach((article, index) => {
+        if (article.id === parseInt(id)) {
+            myIndex = index;
+        }
+    });
+
+    const { authorName, authorInterest, authorQuestion, authorAnswer } =
+        req.body;
+    articles[myIndex].author = authorName;
+    articles[myIndex].authorInterest = authorInterest;
+    articles[myIndex].question = authorQuestion;
+    articles[myIndex].answer = authorAnswer;
+    res.redirect("/articles");
+});
+
+// Deleting the article
+app.delete("/articles/:id", (req, res) => {
+    const { id } = req.params;
+    articles = articles.filter((article) => article.id !== parseInt(id));
+    res.redirect("/articles");
 });
 
 app.listen(PORT, "localhost", () => {
