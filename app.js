@@ -20,6 +20,23 @@ app.set("view engine", "hbs");
 
 hbs.registerPartials(__dirname + "/views/partials");
 
+const articles = [
+    {
+        id: 1,
+        author: "Sachin Kumar Sharma",
+        authorInterest: "Observer of Indian politics",
+        question: "What do you think of India's economic growth in 2023?",
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt harum eum repudiandae, nobis rerum laboriosam rem vitae corporis maxime atque porro error voluptatum dolorem quam ducimus culpa aliquam at. Iste debitis dicta consequuntur quos, dolorem consequatur, explicabo minus excepturi eveniet optio repellendus. Explicabo reprehenderit accusantium eius. Quasi nihil quas a doloribus soluta fuga dicta impedit fugiat! Consectetur esse aliquam dolores at laboriosam iusto vel ipsa dolorem, optio modi aperiam! Distinctio nobis hic natus atque ea ipsam. Asperiores nihil ducimus ipsum praesentium aut quaerat atque id at vel accusantium dolores, nobis, rem necessitatibus, quo sunt quae impedit animi est nulla laboriosam. Quod fuga cum veritatis itaque voluptatibus odio magnam perferendis fugit quam adipisci dignissimos ex quo, sint natus dolorem impedit a ullam optio pariatur voluptate quasi ipsum debitis, distinctio doloremque. Quo quis eius non. Rem impedit totam quidem veniam qui esse iusto provident est obcaecati ratione. Error voluptatum aliquam alias facilis.",
+    },
+    {
+        id: 2,
+        author: "Aman Gupta",
+        authorInterest: "Science & Technology",
+        question: "Do you have any knowledge to share about Jupiter Rings?",
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt harum eum repudiandae, nobis rerum laboriosam rem vitae corporis maxime atque porro error voluptatum dolorem quam ducimus culpa aliquam at. Iste debitis dicta consequuntur quos, dolorem consequatur, explicabo minus excepturi eveniet optio repellendus. Explicabo reprehenderit accusantium eius. Quasi nihil quas a doloribus soluta fuga dicta impedit fugiat! Consectetur esse aliquam dolores at laboriosam iusto vel ipsa dolorem, optio modi aperiam! Distinctio nobis hic natus atque ea ipsam. Asperiores nihil ducimus ipsum praesentium aut quaerat atque id at vel accusantium dolores, nobis, rem necessitatibus, quo sunt quae impedit animi est nulla laboriosam. Quod fuga cum veritatis itaque voluptatibus odio magnam perferendis fugit quam adipisci dignissimos ex quo, sint natus dolorem impedit a ullam optio pariatur voluptate quasi ipsum debitis, distinctio doloremque. Quo quis eius non. Rem impedit totam quidem veniam qui esse iusto provident est obcaecati ratione. Error voluptatum aliquam alias facilis.",
+    },
+];
+
 app.get("/", (req, res) => {
     res.render(path.join(dirname, viewsFolder, welcomePage), {
         title: "Jawaab Paao",
@@ -29,6 +46,8 @@ app.get("/", (req, res) => {
 app.get("/articles", (req, res) => {
     res.render(path.join(dirname, viewsFolder, articlesPage), {
         title: "Jawaab Paao ",
+        articles: articles,
+        hasArticles: articles.length > 0,
     });
 });
 

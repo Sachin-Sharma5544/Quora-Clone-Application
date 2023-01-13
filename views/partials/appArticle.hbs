@@ -1,0 +1,44 @@
+{{#if hasArticles}}
+    {{#each articles as |articleVal|}}
+        <div class="main-body__article">
+            <div class="main-body__articleUserDetails">
+                <div class="main-body__articleUser">
+                    <div class="main-body__articleUserImg">
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKHEZ8jN4MlDEwzxSXGnYU7shtaCjbeMf6Ow&usqp=CAU"
+                            alt=""
+                            height="35px"
+                            width="35px"
+                        />
+                    </div>
+                    <div class="main-body__articleUserInfo">
+                        <h5><a href="#">{{articleVal.author}}</a> </h5>
+                        <span>{{articleVal.authorInterest}}</span>
+                    </div>
+                </div>
+                <div class="main-body__articleUserButtons">
+                    <button class="main-body__articleMoreButton"><i
+                            class="fa-solid fa-ellipsis"
+                        ></i></button>
+                    <button class="main-body__articleCloseButton"><i
+                            class="fa-solid fa-xmark"
+                        ></i></button>
+                </div>
+            </div>
+            <div class="main-body__articleContentDetails">
+                <div class="main-body__articleContentWrapper">
+                    <div class="main-body__articleContent">
+                        <div class="main-body__articleQuestion">
+                            <a href="#">{{articleVal.question}}</a>
+                        </div>
+                        <div class="main-body__articleAnswer">
+                            <p>{{articleVal.answer}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+    <p>Currently we don't have any articles to display</p>
+{{/if}}
