@@ -13,7 +13,10 @@ const welcomePage = "welcomePage.hbs";
 const articlesPage = "articlesPage.hbs";
 const viewsFolder = "views";
 
+let num = 3;
+
 app.use(express.static(path.join(dirname, staticFolder)));
+app.use(express.urlencoded({ extended: true }));
 
 //Setting view engine
 app.set("view engine", "hbs");
@@ -49,6 +52,25 @@ app.get("/articles", (req, res) => {
         articles: articles,
         hasArticles: articles.length > 0,
     });
+});
+
+app.post("/articles", (req, res) => {
+    const { authorName, authorInterest, authorQuestion, authorAnswer } =
+        req.body;
+    articles.push({
+        id: num,
+        author: authorName,
+        authorInterest: authorInterest,
+        question: authorQuestion,
+        answer: authorAnswer,
+    });
+    console.log(articles);
+    num++;
+    res.redirect("/articles");
+});
+
+app.get("/article/new", (req, res) => {
+    res.render("createArticle");
 });
 
 app.listen(PORT, "localhost", () => {
