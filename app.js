@@ -99,6 +99,7 @@ app.get("/articles/:id/edit", (req, res) => {
     const myFilteredArt = articles.filter(
         (article) => article.id === parseInt(id)
     );
+    console.log(myFilteredArt[0]);
     res.render("editArticle", { articles: myFilteredArt[0] });
 });
 
