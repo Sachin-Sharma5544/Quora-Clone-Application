@@ -129,6 +129,6 @@ app.delete("/articles/:id", (req, res) => {
     res.redirect("/articles");
 });
 
-app.listen(PORT, "localhost", () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server started at port ${PORT}`);
 });
